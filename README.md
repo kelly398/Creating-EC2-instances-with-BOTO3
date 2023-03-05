@@ -1,4 +1,8 @@
 # Creating-EC2-instances-with-BOTO3
 programmatically deploy EC2 resources using AWS python boto3 with python scrypt.
-Boto3 offers two modules, resource and client. The high-level resource module returns classes while the lower-level client module returns dictionaries. Some tasks are simpler to do with resource while others are simpler to do with client. AWS maintains a vast documentation about both modules.
-Python boto3 interacts with the lower-level module botocore which acts as an intermediary to access the cloud resources such as the Elastic Compute Cloud service (EC2). In this case, botocore translates the upper-level instructions from boto3 to HTTPS API calls directed to the endpoints of the EC2 service. Then, this service answers with data formatted in the Extensible Markup Language (XML). For example, the following diagram illustrates this principle with a python script retrieving information about an EC2 virtual machine. Furthermore, python scripts can also create, delete, or modify EC2 instances.
+python script will perform the following sub-tasks:
+    • The script will retrieve the identifications (subnet IDs) of the six subnets in the default virtual private cloud (VPC). 
+    • Then using subnet IDs, the same script will deploy one EC2 instance per each subnet. 
+    • The deployment of the EC2 will include User Data to configure httpd websites. 
+    • The website landing page should say Hi from (VM’s hostname)
+    • Finally, the script will list the identification of the EC2 (instance IDs), the subnet Id the instance is deployed to and instance’s private IPv4 address.
