@@ -9,6 +9,7 @@ sudo yum install -y httpd mariadb-server
 sudo systemctl start httpd
 sudo systemctl enable httpd
 """
+#replace "yourkeyname" withyour pem key
 
 ec2 = boto3.resource('ec2')
 
@@ -39,7 +40,7 @@ sg.authorize_ingress(
 instances = []
 for subnet_id in subnets:
     instance = ec2.create_instances(
-        ImageId='ami-12345689101112', # Amazon Linux 2 LTS
+        ImageId='ami-12345689101112', # replace with your amazon AMI
         MinCount=1,
         MaxCount=1,
         InstanceType='t2.micro',
